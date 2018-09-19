@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["env", {
+      "loose": true,
+      "targets": {
+        "browsers": ["last 2 versions", "ie >= 10", "safari >= 7"]
+      },
+      "include": [
+        "transform-es2015-classes"
+      ]
+    }],
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-decorators-legacy"
+  ]
+}

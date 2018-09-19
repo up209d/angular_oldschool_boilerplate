@@ -1,0 +1,59 @@
+// Bezier Sets
+$ease-back: cubic-bezier(.17,.67,.16,1.14);
+$ease-back-hard: cubic-bezier(.05,.73,.11,1.37);
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+// Start with assigning color names to specific hex values.
+$white:  #fff ;
+$black:  #000 ;
+$red:    #D9344E ;
+$orange: #f0ad4e ;
+$yellow: #ffd500 ;
+$green:  #5cb85c ;
+$blue:   #0d3880 ;
+$bunting: #1d1756;
+$teal:   #00aab2 ;
+$pink:   #e60278 ;
+
+$pink--charts: #a03780;
+$pink--filter: #d8527e;
+
+$purple: #a03680 ;
+
+// Create grayscale
+$gray-dark:                 #292b2c ;
+$gray:                      #464a4c ;
+$gray-light:                #686868 ;
+$gray-lighter:              #999999 ;
+$gray-lightest:             #f5f5f5 ;
+
+
+$pink--charts: $purple;
+$secondary-color: $bunting;
+
+$primary-color-filter: $teal;
+$pink--filter: $pink;
+
+
+// UP Customize - Make a color Map from those
+$colors-map: (
+  "white":  $white ,
+  "black":  $black ,
+  "red":    $red ,
+  "orange": $orange ,
+  "yellow": $yellow ,
+  "green":  $green ,
+  "blue":   $blue ,
+  "bunting":$bunting,
+  "teal":   $teal ,
+  "pink":   $pink ,
+  "purple": $purple,
+  "gray-dark":                 $gray-dark,
+  "gray":                      $gray,
+  "gray-light":                $gray-light,
+  "gray-lighter":              $gray-lighter,
+  "gray-lightest":             $gray-lightest
+);

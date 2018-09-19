@@ -1,0 +1,305 @@
+@import '../../node_modules/animatewithsass/animate.scss';
+
+@keyframes spinLoop {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes spinZoomLoop {
+  0% {
+    transform:rotate(0deg) scale(1,1) translate3d(0,0,0);
+  }
+  50% {
+    transform:rotate(360deg) scale(0.85,0.85)  translate3d(0,0,0);
+  }
+  100% {
+    transform:rotate(720deg) scale(1,1) translate3d(0,0,0);
+  }
+}
+
+
+// Default Animate Show Hide
+// ng-hide-add is add ng-hide class session
+// ng-hide-remove is remove ng-hide class session
+
+// FOR NG SHOW HIDE
+
+.animate-show-hide-fade.ng-hide-add {
+  @include fadeOut(
+    $duration: 0.3s,
+    $function: ease-out,
+    $fill: forwards
+  );
+  &.fade-overlap {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+  }
+
+  &.instant-hide {
+    display: none;
+  }
+}
+
+.animate-show-hide-fade.ng-hide-remove {
+  @include fadeIn(
+    $duration: 0.3s,
+    $function: ease-out,
+    $fill: forwards
+  );
+}
+
+
+.animate-show-hide-fade-down.ng-hide-add {
+  @include fadeOutUp(
+    $duration: 0.3s,
+    $function: ease-out,
+    $fill: forwards
+  );
+  &.fade-overlap {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+  }
+
+  &.instant-hide {
+    display: none;
+  }
+}
+
+.animate-show-hide-fade-down.ng-hide-remove {
+  @include fadeInDown(
+    $duration: 0.3s,
+    $function: ease-out,
+    $fill: forwards
+  );
+}
+
+
+.animate-show-hide-flip.ng-hide-add {
+  @include flipOutX(
+    $duration: .3s,
+    $fill: forwards
+  );
+  &.fade-overlap {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+  }
+  &.instant-hide {
+    display: none;
+  }
+}
+
+.animate-show-hide-flip.ng-hide-remove {
+  @include flipInX(
+    $duration: .3s,
+    $fill: forwards
+  );
+  &.fade-overlap {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+  }
+}
+
+// TRANSITION FOR NG SHOW HIDE
+
+.transition-show-hide {
+  transition: all .3s ease-out;
+  .ng-hide-add {
+    opacity: 0;
+  }
+  .ng-hide-add-active {
+    opacity: 1;
+  }
+  .ng-hide-remove {
+    opacity: 1;
+  }
+  .ng-hide-remove-active {
+    opacity: 0;
+  }
+}
+
+// FOR NG IF SWITCH & ELSE
+
+.animate-show-hide {
+  &.transition {
+    &.fade-in-out {
+      &.ng-enter {
+        transition: all .3s ease-out;
+        opacity: 0;
+      }
+
+      &.ng-enter-active {
+        opacity: 1;
+      }
+
+      &.ng-leave {
+
+        &.fade-overlap {
+          pointer-events: none;
+          position: absolute;
+          width: 100%;
+        }
+
+        transition: all .3s ease-out;
+        opacity:1;
+
+        &.instant-hide {
+          display: none;
+        }
+
+      }
+
+      &.ng-leave-active {
+        opacity:0;
+
+        &.fade-overlap {
+          pointer-events: none;
+          position: absolute;
+          width: 100%;
+        }
+
+      }
+    }
+  }
+
+  &.animation {
+
+    // Fade In Out
+    &.fade-in-out {
+      &.ng-enter {
+
+        @include fadeIn(
+          $duration: 0.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+      }
+      &.ng-leave {
+
+        &.fade-overlap {
+          position: absolute;
+          width: 100%;
+        }
+
+        @include fadeOut(
+          $duration: 110.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+
+        &.instant-hide {
+          display: none;
+        }
+
+      }
+    }
+
+    &.fade-in-out-up-down {
+      &.ng-enter {
+        @include fadeInUp(
+          $duration: 0.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+      }
+      &.ng-leave {
+
+        &.fade-overlap {
+          pointer-events: none;
+          position: absolute;
+          width: 100%;
+        }
+
+        @include fadeOutDown(
+          $duration: 0.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+
+        &.instant-hide {
+          display: none;
+        }
+      }
+    }
+
+    &.fade-in-out-down-up {
+      &.ng-enter {
+
+        @include fadeInDown(
+          $duration: 0.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+      }
+      &.ng-leave {
+
+        &.fade-overlap {
+          pointer-events: none;
+          position: absolute;
+          width: 100%;
+        }
+
+        @include fadeOutUp(
+          $duration: 0.5s,
+          $function: ease-out,
+          $fill: forwards
+        );
+
+        &.instant-hide {
+          display: none;
+        }
+
+      }
+    }
+
+  }
+}
+
+// For NG REPEAT
+
+.dl-repeater.ng-enter {
+  transition: all .3s ease-out;
+  transform-origin: center center;
+  transform: translateX(-10%);
+  opacity: 0;
+}
+
+.dl-repeater.ng-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.dl-repeater.ng-leave {
+  transition: all .3s ease-out;
+  transform-origin: center center;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.dl-repeater.ng-leave-active {
+  transition: all .3s ease-out;
+  transform-origin: center center;
+  transform: translateX(-10%);
+  opacity: 0;
+}
+
+.dl-repeater.ng-move {
+  transition-property: all;
+  transition-duration: .3s;
+  transition-timing-function: ease-out;
+  transform-origin: center center;
+  transform: translateY(-10%);
+  opacity: 0;
+}
+
+.dl-repeater.ng-move-active {
+  transform: translateY(0);
+  opacity: 1;
+}

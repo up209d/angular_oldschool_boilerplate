@@ -1,0 +1,27 @@
+$fa-font-path:  '../assets/fonts';
+
+// Font Awesome
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/regular';
+
+// Import bootstrap -
+// Note: Custom to bootstrap.scss is also imported in bootstrap, see _bootstrap.scss
+@import 'custom';
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Import globals
+@import 'animate';
+@import 'utils';
+@import 'reset';
+
+// Components
+
+// Layouts
+
+// Pages
+@import './pages/home';
+
+// Override for Print
+@import 'print';
