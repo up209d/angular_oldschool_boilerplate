@@ -71,6 +71,46 @@ const routeConfig = function ($stateProvider, $urlRouterProvider, $locationProvi
           // }
         }
       }
+    },
+    {
+      name: 'root.about',
+      url: '/about',
+      resolve: {
+        aboutMsg: function () {
+          return 'About / ';
+        }
+      },
+      data: {
+        page: 'about'
+      },
+      onEnter: function () {
+        console.log('About Entering ...');
+      },
+      onExit: function () {
+        console.log('About Exiting ...');
+      },
+      params: {
+        // Default params, optional params come here
+      },
+      views: {
+        // It is better to use template and controller to put component in instead of
+        // declare component directly here, since you will have an inherit resolve, data
+        // and can bind data in to the component, you also have one parent controller bound to
+        // the template in addition. Also you can control your template better
+        // than just declare only component here
+        '': {
+          // template: '<h1 class="text-center p-5">HELLO WORLD</h1>',
+          // controller: ['$scope',function($scope) {
+          //  // Do Smt
+          // }]
+          // In case you want to bind something to component
+          component: 'dlAbout',
+          // bindings: {
+          //  rootMsg: 'rootMsg',
+          //  homeMsg: 'homeMsg'
+          // }
+        }
+      }
     }
   ];
 

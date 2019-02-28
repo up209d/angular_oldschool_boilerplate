@@ -47,6 +47,9 @@ dlApp.service('dataService',dataService);
 import dlHome from './pages/homepage';
 dlApp.component('dlHome',dlHome);
 
+import dlAbout from './pages/about';
+dlApp.component('dlAbout',dlAbout);
+
 // Config For Route
 dlApp.config(routeConfig);
 
