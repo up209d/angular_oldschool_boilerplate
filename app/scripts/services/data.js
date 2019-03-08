@@ -19,7 +19,11 @@ const dataService = function($rootScope,$state,$timeout,$q,$http) {
       const defer = $q.defer();
       const request = $http({
         method: 'GET',
-        url: 'data/data.json'
+        url: 'data/data.json',
+        cache: true,
+        params: {
+          build: window._BUILD_
+        }
       }).then(
         res => {
           runInAction(()=>{
@@ -37,7 +41,11 @@ const dataService = function($rootScope,$state,$timeout,$q,$http) {
     @action requestData = async () => {
       const response = await $http({
         method: 'GET',
-        url: 'data/data.json'
+        url: 'data/data.json',
+        cache: true,
+        params: {
+          build: window._BUILD_
+        }
       });
       runInAction(()=>{
         this.state = response.data;
@@ -47,7 +55,11 @@ const dataService = function($rootScope,$state,$timeout,$q,$http) {
     generateData = flow(function*() {
       const response = yield $http({
         method: 'GET',
-        url: 'data/data.json'
+        url: 'data/data.json',
+        cache: true,
+        params: {
+          build: window._BUILD_
+        }
       });
       this.state = response.data;
     });

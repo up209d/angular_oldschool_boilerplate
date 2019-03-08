@@ -45,7 +45,12 @@ const preloadService = function($rootScope,$state,$timeout,$q,$http) {
             let extension = /\.(.*)$/.exec(item);
             if (extension !== null) {
               if (extension[1].toLowerCase() === 'svg') {
-                $http.get(item,{cache: true}).then(function(res) {
+                $http.get(item,{
+                  cache: true,
+                  params: {
+                    build: window._BUILD_
+                  }
+                }).then(function(res) {
                   count++;
                   if (count === list.length - invalidItemCount) {
                     defer.resolve();

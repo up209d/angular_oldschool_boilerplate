@@ -67,7 +67,19 @@ dlApp.run([
   dlAppRun
 ]);
 
+window._BUILD_ = '';
+
 function dlAppRun($rootScope,$window,$state,$transitions,$trace,$timeout,$sce,utilsService,preloadService,dataService) {
+  
+  // GET THE BUILD ID (FOR CACHING ISSUE)
+  $rootScope._BUILD_ = '';
+  let scriptElement = document.getElementById('dla-bundle-script');
+  if (scriptElement) {
+    let buildId = ((scriptElement.src.split('-')[1] || '').split('.')[0] || '');
+    window._BUILD_ = buildId ? buildId : '';
+    $rootScope._BUILD_ = buildId ? buildId : '';
+  }
+  
   // CONNECT ALL SERVICE TO ROOTSCOPE
   // use Services from anywhere in the app by $scope.$root.[Service]
   $rootScope.window = $window;

@@ -161,12 +161,37 @@ const utilsService = function($rootScope,$state,$timeout,$q,$http,$sce,$window) 
         return (((value - from) / (to - from)) * (newTo - newFrom)) + newFrom;
       }
     },
+  
+    getLipsum: function(opt = {
+      type: 'meat-and-filler',
+      paras: 1,
+      sens: 3,
+      cache: false
+    }) {
+      return $http
+        .get(
+          `https://baconipsum.com/api/?format=text&type=${opt.type}&paras=${opt.paras}&sentences=${opt.sens}`,
+          {cache: opt.cache}
+        )
+        .then(
+          function(res){
+            return res.data;
+          })
+    },
+  
+    parseSVG: function(link,cache = true) {
+      return $http
+        .get(link,{cache: cache, params: { build: window._BUILD_ }}).then(function(res){
+          return $sce.trustAsHtml(res.data);
+        });
+    },
 
     // Parse SVG Content to HTML
     // This Function purpose is create an object which also a ref to the $rootScope
     // So everytime $rootScope change, it will change also
     // By doing that, we solve the async problem from $http.get which is the hard to
     // parse the result once the request is done
+    // Also support the preloading for SVG fetching as well
     getSVGImage: function(link) {
 
       let self = this;
@@ -175,7 +200,7 @@ const utilsService = function($rootScope,$state,$timeout,$q,$http,$sce,$window) 
         self.imagesCache = []
       }
 
-      // Return Image if image is found in cache
+      // Return Image if image is found in cache pool
       let currentIndex = self.imagesCache.findIndex(function(item){
         return item.path === link;
       });
@@ -184,13 +209,13 @@ const utilsService = function($rootScope,$state,$timeout,$q,$http,$sce,$window) 
         return self.imagesCache[currentIndex].data;
       }
 
-      // Add New Image to Image Cache if it wasnt found
+      // Add New Image to Image Cache pool if it wasnt found
       currentIndex = self.imagesCache.length || 0;
 
       // Default Value
       self.imagesCache.push({
         path: link,
-        data: $sce.trustAsHtml('<span class="dl-pre-loading"></span>')
+        data: $sce.trustAsHtml('<span class="up-pre-loading"></span>')
       });
 
       $http({
