@@ -1,10 +1,10 @@
 # ANGULAR 1X BOILERPLATE
 
-    Gulp - Browserify - Browsersync Server - Babel ES2015 - Babel Polyfill
+    Gulp - Browserify - Browsersync Server - ES6
      
-    Angular 1.6.5 - UI-Router - NgAnimate - NgHammer
-     
-    d3.js - Jquery - Modernize - Hammer - Mobile-Detect 
+    AngularJs 1.x - UI-Router - NgAnimate - NgHammer
+    
+    MobX Store
      
     SASS - Boostrap 4 - Animate SCSS
  
