@@ -26,7 +26,7 @@ const routeConfig = function ($stateProvider, $urlRouterProvider, $locationProvi
       },
       onEnter: function () {
         console.log('All preloading assets are fetched!');
-        $('#dl-preload').css({ opacity: 0, pointerEvents:'none' });
+        $('#up-static-preload').css({ opacity: 0, pointerEvents:'none' });
       },
       onExit: function () {
         console.log('Root Exiting ...');
