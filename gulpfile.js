@@ -6,7 +6,6 @@ const del = require('del');
 const wiredepStream = require('wiredep').stream;
 const exec = require('child_process').exec;
 const browserify = require('browserify');
-const source = require('vinyl-source-stream');
 const babelify = require('babelify');
 const history = require('connect-history-api-fallback');
 const wait = require('gulp-wait');

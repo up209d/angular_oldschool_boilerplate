@@ -8,6 +8,8 @@
   "main": "app/scripts/main.js",
   "scripts": {
     "start": "node ./node_modules/gulp/bin/gulp.js serve",
+    "dev": "node ./node_modules/gulp/bin/gulp.js serve",
+    "build": "node ./node_modules/gulp/bin/gulp.js serve:dist",
     "clean": "node ./node_modules/gulp/bin/gulp.js clean"
   },
   "devDependencies": {
@@ -77,11 +79,8 @@
     "mocha": "^6.1.0",
     "modernizr": "^3.7.1",
     "popper.js": "^1.15.0",
-    "run-sequence": "^2.2.1",
-    "string": "^3.3.3",
     "tether": "^1.4.5",
     "vinyl": "^2.2.0",
-    "vinyl-source-stream": "^2.0.0",
     "webfontloader": "^1.6.28",
     "wiredep": "^4.0.0"
   },
